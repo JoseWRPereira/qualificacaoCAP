@@ -1,0 +1,113 @@
+%%%Objetivo ou Finalidade: preocupação em distinguir a característica comum ou as leis gerais que regem determinados eventos.
+
+Tendo em vista que estudos de novas formas de lógicas não clássicas estão em curso, a lógica paraconsistente surge como uma promissora ferramenta para tomada de decisão em diversos campos de aplicação como a robótica, automação industrial, inteligência artificial, logística, controle, entre outras\cite{JoaoInacio}.
+ 
+Segundo o Dr. \citeauthor{DecioKrause}(\citeyear{DecioKrause}), professor e pesquisador do departamento de Filosofia da Universidade Federal de Santa Catarina: "Alguns dos campos mais férteis de aplicação dessas lógicas têm sido a ciência da computação, a engenharia e a medicina." e cita ainda que:
+\begin{citacao}{
+ "... na inteligência artificial essas lógicas foram usadas a partir da década de 1980 por H. Blair e V. S. Subrahmanian, da Universidade de Siracusa, Estados Unidos, e colaboradores, na elaboração de sistemas para serem utilizados especialmente em medicina." 
+}
+\end{citacao}
+
+A Lógica Clássica, que utiliza um modelo lógico binário, foi de forma muito natural adaptado ao funcionamento dos transistores utilizados como chave liga/desliga, e este funcionamento embasou toda a tecnologia digital que vemos hoje em dia, baseada em princípios bem definidos e reais. Assim, surge a indagação sobre a utilização de Lógicas Paraconsistentes aplicadas ao mundo real como cita \citeauthor{JISF2011}(\citeyear{JISF2011}):
+
+\begin{citacao}{
+Dentro desta percepção, surge a ideia da possibilidade real de um Sistema Lógico Paraconsistente que, assim como na lógica clássica, é um conjunto de axiomas e regras de inferência que objetivam representar formalmente raciocínio válido. Sendo assim, o Sistema Lógico Paraconsistente pode ser representado através de um algoritmo que tem sua utilização como o núcleo de um programa computacional com aplicações diretas em sistemas de Inteligência Artificial.
+}
+\end{citacao}
+
+
+
+Algumas das Lógicas Paraconsistentes ainda não tiveram  uma abordagem prática de sua implementação, ou ainda, tais abordagens são muito escassas, seja com dispositivos simples ou com os mais complexos. 
+
+Visando uma melhor compreensão da Lógica Paraconsistente, e vislumbrando sua utilização em controle de sistemas dinâmicos utilizando um ramo denominado Lógica Paraconsistente Anotada de Anotação com dois valores (LPA2v), pressupõe-se um estudo de uma aplicação inicial como forma de desbravar uma nova possibilidade da utilização de um algoritmo que vem sendo aplicado com sucesso em Inteligência Artificial no segmento de Controle.
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Hipótese e Relevância do Trabalho}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A Lógica Paraconsistente Anotada de anotação com dois valores (LPA2v) pode ser utilizada para o controle de sistemas dinâmicos, hipótese esta que confirmada pode elevar ainda mais a sua relevância e elencar mais uma alternativa para aplicações técnicas e científicas. 
+
+A lógica paraconsistente vem ganhando relevância e adeptos principalmente a partir do final da década de 90 do século XX, quando houve o Primeiro Congresso Mundial sobre Paraconsistência em Gent na Bélgica em 1997, no ano 2000 o segundo congresso realizado em São Sebastião, São Paulo e o terceiro em Toulouse, França em julho de 2003, atraindo cada vez mais pesquisadores interessados de diversos centros de pesquisa do mundo \cite{DecioKrause}. 
+
+Em meados de setembro de 2016, aconteceu o pela primeira vez no Brasil a XVI Conferência Internacional de Lógica: \texttt{Tendências da Lógica} (\emph{Trends In Logic XVI - Studia Logica International Conference}) \cite{trendsinlogic}, realizada pelo Centro de Lógica, Epistemologia e História da Ciência (CLE) da Universidade Estadual de Campinas, que reuniu estudiosos brasileiros e de diversos países com trabalhos e apresentações sob o tema: Consistência, Contradição, Paraconsistência e Racioncínio (\emph{Consistency, Contradiction, Paraconsistency, and Reasoning}).
+
+Atualmente as pesquisas estão focadas no estudo da aplicação da Lógica Paraconsistente, e ganhar espaço no universo técnico e científico, contribuindo com uma nova e eficiente forma de trabalho.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Objetivo Geral}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Objeto, subdividido em:
+%Material: aquilo que pretende estudar, analisar, interpretar ou verificar de modo geral.
+Estudar a LPA2v e desenvolver um algoritmo que possa ser embarcado para atuar no controle dinâmico de um sistema físico.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Objetivos Específicos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Formal:enfoque especial, 
+%	em face de diversas ciências que possuem o mesmo objetivo material.
+
+
+Realizar a construção de um sistema físico para o controle de velocidade em um motor DC, de modo a utilizá-lo para a realização dos ensaios.
+
+Implementar o algorítmo da LPA2v proposto na literatura de referência, codificando-o e criando uma biblioteca para sua utilização junto ao sistema físico.
+
+Desenvolver a malha de controle do sistema físico proposto utilizando o algorítmo da LPA2v.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Justificativa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Função:aperfeiçoamento, 
+%	através de crescente acervo de conhecimento, 
+%	da relação do homem com o seu mundo.
+
+
+A função primordial do presente trabalho é realizar uma análise da implementação de uma lógica não-convencional, 
+contribuindo para a ampliação do conhecimento em uma nova forma de lidar com o mundo e
+gerar aplicações em uma área ainda pouco explorada pela LPA2v, o controle de sistemas. 
+
+
+A visão aristotélica cunhou a forma lógica de lidar com o mundo, 
+estabelecendo regras que permearam a história até o presente momento,
+mas que, no século XX foram questionadas, procurando-se novas formas e ferramentas para tratar de questões que fogem das regras vigentes. 
+A Lógica Paraconsistente é uma das ferramentas que permite o tratamento de contradições e incertezas,
+que estão além dos limites da lógica clássica.
+
+A LPA2v é a uma vertente da Lógica Paraconsistente que vem sendo explorada para finalidades práticas, 
+tais como o reconhecimento de padrões em banco de dados, tomada de decisão e tratamento de incertezas em sistemas robóticos e logísticos, 
+mas todas as áreas com uma abordagem ligada à Inteligência Artificial ou ao controle discreto do processo, 
+ainda há escassez de trabalhos no controle contínuo de sistemas dinâmicos. 
+
+
+A análise da implementação da LPA2v no universo das lógicas não-convencionais implica em possibilitar uma nova forma de controle de sistemas, 
+sua definição permite um embasamento para criar novas possibilidades de seu uso,
+e ajudar a sedimentar a nova ferramenta no meio acadêmico. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Limitações da pesquisa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Não colocar o elemento TEMPO! 
+%%% Colocar até onde vai a pesquisa e o que ela não abordará.
+
+%Este estudo limitar-se-á ao estudo da LPA2v, e possivelmente uma pequena Rede de Análise Paraconsistente, voltado à Inteligência Artificial, mas sempre com o objetivo de realizar o controle dinâmico do sistema proposto.
+
+%Não faz parte a abordagem do modo clássico de controle PID, Avanço de Fase, ou mesmo Controle Moderno, assim como a abordagem e especificações do controlador ou mesmo da linguagem utilizada para a montagem do protótipo.
+
+
