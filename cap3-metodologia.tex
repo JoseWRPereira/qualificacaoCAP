@@ -72,14 +72,29 @@ A programação do firmware, que irá embarcar o sistema de controle, será feit
 
 
 \section{ Obter um modelo do processo }
-Realizar o levantamento da curva de comportamento do sistema, e com isso estabelecer a função de transferência do sistema assim como mostrar seu gráfico de comportamento atual, o desejado e o obtido com a utilização do controle com LPA2v.
+Obter a curva de comportamento do sistema para 
+estabelecer a função de transferência do sistema,  
+e com isso, 
+estabelecer os objetivos do controle e 
+identificar a variável a ser controlada.
 
-\subsection{ Estabelecer os objetivos do controle }
-Mostrar o comportamento do sistema em malha aberta e denotar os limites do comportamento desejado.
 
-\subsection{ Identificar a variável a ser controlada }
+A obtenção da curva característica se dá 
+pela aquisição sucessiva do intervalo de cada rotação, 
+mensurado a partir de um contador de tempo configurado adequadamente. 
 
-Mapear e isolar a variável que será controlada e analisar seu comportamento mediante implementação da LPA2v.
+
+O objetivo do desenvolvimento proposto, 
+é realizar o controle da velocidade de rotação do disco acoplado ao eixo do motor, 
+de forma a garantir que o curva característica de velocidade apresente
+tempo de subida igual ou menor do que um quinto do tempo em malha aberta, 
+sobressinal de no máximo 10\% e erro de regime estacionário inferior a 5\%, 
+valores estes que atendem as espectativas iniciais para uma primeira implementação.
+
+
+A variável controlada é a velocidade angular na forma de rotações por segundo (RPS) e a variável manipilada é a tensão média aplicada ao motor através da técnica de Modulação por Largura de Pulso, do inglês \emph{Pulse Width Motulation - PWM}.
+
+
 
 \section{ Estudar a LPA2v }
 
