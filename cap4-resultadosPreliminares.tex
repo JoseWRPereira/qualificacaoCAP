@@ -145,7 +145,7 @@ $K$ : Constante de proporcionalidade;
 $s$ : Variável complexa de Laplace;
 
 $a$ : Polo da função.
-\setlength{\parindent}{1cm}
+\setlength{\parindent}{0cm}
 
 
 
@@ -319,10 +319,85 @@ Aplicando a Transformada de Laplace:
 Baseado no gráfico mostrado na Figura \ref{fig:acaoMalhaAberTau}, o valor de tempo em que o motor assume a velocidade de referência é aproximadamente $5\tau$, 12,5 s, e como objetivo para uma primeira versão da implementação do controle utilizando LPA2v é proposto que o sistema reduza o tempo de alcance da velocidade alvo em um tempo de no máximo $1\tau$, ou seja, $2,5 s$.
 
 
+\subsection{ Qualidade do modelo }
+
+A qualidade do modelo é relativa ao erro aceitável para o sistema estudado. Para o modelo obtido neste estudo foi aplicada o cálculo de Erro Relativo Percentual, e foram feitas análises em trechos diferentes em função da não linearidade inicial apresentada pelo comportamento do motor da planta em estudo.
+
+A equação para o cálculo de Erro Relativo Percentual foi:
+
+\begin{equation}
+ \% erro = \frac{| \text{\emph{valor real}} -\text{\emph{valor calculado}} |}{\text{\emph{valor real}}} x 100
+\end{equation}
+
+Realizando a somatória para o cálculo de erro médio com todas as amostras aquisitadas: 
+
+\begin{equation}
+ \% erro = \frac{100}{N} . \sum_{n = 0,00}^{n=22,40} {\frac{| \text{\emph{r[n]}} -\text{\emph{c[n]}} |}{\text{\emph{r[n]}}} } 
+\end{equation}
 
 
+Onde:
+
+\setlength{\parindent}{2cm}
+r : valor real; 
+
+c : valor calculado;
+
+n : número da amostra aquisitada;
+
+N : número total de amostras.
+
+Obs.: As aquisições iniciaram com tempo inicial de 0,00 s até o tempo final de 22,40 segundos, com intervalo de 10 milisegundos entre aquisições, totalizando 2240 amostras.
+
+\setlength{\parindent}{0cm}
+
+A Tabela \ref{tab:ErroModelo} mostra o erro médio relativo calculado para diferentes intervalos de tempo. O primeiro valor contempla o intervalo completo de tempo amostrado, de 0,00 até 22,40 s com um erro de 10,77\%. Porém devido a não linearidade inicial, ocorre uma distorção bem grande que pode ser visto nos dois outros intervalos, de 0,00 a 0,50 segundos com erro de 364,13\%, completamente não aceitável, mas que após os 50 milisegundos iniciais, o erro médio é de 2.71\%. 
 
 
+\begin{table}[h]
+\centering
+\caption{Erro Relativo Percentual}
+\label{tab:ErroModelo}
+
+\begin{tabular}{c|c}
+\hline
+Intervalo de amostras  &  erro médio relativo \\ \hline
+\hline
+0,00 a 22,40 s  &   10,77 \% \\ \hline
+0,00 a  0,50 s 	&  364,13 \% \\ \hline
+0,50 a 22,40 s  &    2,71 \% \\ \hline
+
+\end{tabular}
+\end{table}
+
+
+De forma mais detalhada, 
+foram calculados os erros médios relativos para cada intervalo de 
+tempo de um $\tau$, 
+e pode-se notar, 
+pela Tabela \ref{tab:ErroModeloTau}, 
+que o erro de estado estacionário, para o intervalo acima de 5 $\tau$, é menor do que 1\%. 
+
+
+\begin{table}[h]
+\centering
+\caption{Erro Relativo Percentual para intervalos determinados por $\tau$ }
+\label{tab:ErroModeloTau}
+
+\begin{tabular}{c|c}
+\hline
+Intervalo de amostras  &  erro médio relativo \\ \hline
+\hline
+0 a 1 $\tau$ & 83,40 \% \\ \hline
+1 a 2 $\tau$ &  3,16 \% \\ \hline
+2 a 3 $\tau$ &  3,38 \% \\ \hline
+3 a 4 $\tau$ &  2,00 \% \\ \hline
+4 a 5 $\tau$ &  2,29 \% \\ \hline
+$>$ 5 $\tau$ &  0,82 \% \\ \hline
+\end{tabular}
+\end{table}
+
+O intervalo inicial, de 0 a 1$\tau$ apresenta um grande erro, devido a não linearidade já falada anteriormente, que ocorre no primeiros 50 ms. 
 
 
 
