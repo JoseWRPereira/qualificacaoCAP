@@ -1,7 +1,7 @@
 
 
 
-\section{ Construir um sistema de controle físico }
+\section{ Construção de um sistema físico para controle }
 
  O sistema físico, ou protótipo, foi desenvolvido utilizando a placa de desenvolvimento da Texas Instruments, modelo $Tiva^{TM}$ TM4C123GH6PM, drive para acionamento do motor utilizando PWM, motor DC acoplado a um CD, com uma etiqueta, Figura \ref{fig:discoSensor}, para acionar o sensor óptico e servir de indicador para contagem de giros do motor. Fonte de alimentação chaveada de 12V 10W. A maior parte do sistema pode ser visto na Figura \ref{fig:discoSensorGeral} .
 
@@ -22,7 +22,7 @@
 \end{figure}
 
 
-\section{ Obter um modelo do processo }
+\section{ Obtenção de um modelo do processo }
 
 Para melhor compreensão dos modelos dinâmicos dos sistemas, é utilizado o Diagrama de blocos do comportamento do sistema em malha aberta, conforme Figura \ref{fig:AcaoMalhaAberta}\cite{Ogata}.
 
@@ -397,10 +397,20 @@ $>$ 5 $\tau$ &  0,82 \% \\ \hline
 \end{tabular}
 \end{table}
 
-O intervalo inicial, de 0 a 1$\tau$ apresenta um grande erro, devido a não linearidade já falada anteriormente, que ocorre no primeiros 50 ms. 
+O intervalo inicial, de 0 a 1$\tau$ apresenta um grande erro, devido a não linearidade já comentada anteriormente, que ocorre nos primeiros 50 ms. 
+
+Desconsiderando a região transitória não linear 
+que ocorre nos instantes iniciais do movimento do eixo do motor, 
+o erro é menor do que 3\%, conforme mostrado na Tabela \ref{tab:ErroModelo},
+ou ainda na análise com todos os intervalos com dimensão de 1$\tau$, 
+os valores de erro após o primeiro intervalo 
+estão dentro do limite de 5\% de erro,  
+conforme mostrado na Tabela \ref{tab:ErroModeloTau}, 
+ressaltando que para o regime estacionário o erro é menor do que 1\%.
+Assim, considera-se que o modelo utilizado é bom e representa razoavelmente bem o sistema físico real.
 
 
-
+\subsection{Etapas a serem desenvolvidas}
 
 \begin{itemize}
 \item Estudar a LPA2v;

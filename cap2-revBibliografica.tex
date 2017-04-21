@@ -542,44 +542,19 @@ A representação ainda é dividia em algumas partes, dependendo da aplicação,
 Uma divisão em 12 partes é mostrada na Figura \ref{fig:reticuladoLPA2v} com seus respectivos estados intermediários definidos conforme \citeauthor{JoaoInacio}(\citeyear{JoaoInacio}), sendo 4 regiões extremas:
 
 
-\begin{figure}[!htb]
-\center\includegraphics[scale=1.5]{./pic/C430gcgct.eps}
-\caption{Representação do reticulado da LPA2v subdividido em 12 regiões}
-\label{fig:reticuladoLPA2v}
-\end{figure}
+%\begin{figure}[!htb]
+%\center\includegraphics[scale=1.5]{./pic/C430gcgct.eps}
+%\caption{Representação do reticulado da LPA2v subdividido em 12 regiões}
+%\label{fig:reticuladoLPA2v}
+%\end{figure}
 
 
-\begin{itemize}
-\item V : Verdadeiro;
-\item F : Falso;
-\item $\top$ : Contradição;
-\item $\bot$ : Paracompleto.
-\end{itemize}
-e 8 regiões intermediárias: 
-\begin{itemize}
-\item Qv $\rightarrow  \top$ : Quase Verdade tendendo à Contradição;
-\item Qv $\rightarrow  \bot$ : Quase Verdade tendendo à  Paracompleto;
-\item Qf $\rightarrow  \top$ : Quase Falso tendendo à Contradição;
-\item Qf $\rightarrow  \bot$ : Quase Falso tendendo à Paracompleto;
-\item $\top \rightarrow $ f : Contradição tendendo à Falso;
-\item $\top \rightarrow $ v : Contradição tendendo à Verdadeiro;
-\item $\bot \rightarrow $ f : Paracompleto tendendo à Falso;
-\item $\bot \rightarrow $ v : Paracompleto tendendo à Verdadeiro.
-
-\end{itemize}
-
-O reticulado subdividido em 12 regiões como mostrado, é aplicado em situações nas quais a tomada de decisão utiliza estados discretos bem definidos para atuação, onde para cada posição da anotação e respectivamente um estado do reticulado, uma ação é tomada, assim sendo, a quantidade de subdivisões está fortemente dependente da aplicação.
-
-
-
-
-
-\begin{figure}
+\begin{figure}[!h]
 \centering
 \begin{tikzpicture}[scale=1.0]
 \tikzset{ >=latex, inner sep=0pt, outer sep=0pt,  }
 
-\draw [lightgray, dashed](0,0) grid (10,10);
+%\draw [lightgray, dashed](0,0) grid (10,10);
 
 \node [fill=black, circle] (V) at (9,5) {:};
 \node [fill=black, circle] (F) at (1,5) {:};
@@ -599,10 +574,10 @@ O reticulado subdividido em 12 regiões como mostrado, é aplicado em situaçõe
 
 %\draw [dashed] (F) -- (V);
 %\draw [dashed] (T) -- (L);
-\draw [->, thick] (V) -- (10,5);
-\draw [thick] (0,5) -- (F);
-\draw [->, thick] (T) -- (5,10);
-\draw [thick] (5,0) -- (L);
+\draw [->, thick] (V)   -- (10,5);
+\draw [    thick] (0,5) -- (F);
+\draw [->, thick] (T)   -- (5,10);
+\draw [    thick] (5,0) -- (L);
 
 \draw [thick] (V) -- (T);
 \draw [thick] (T) -- (F);
@@ -632,40 +607,240 @@ O reticulado subdividido em 12 regiões como mostrado, é aplicado em situaçõe
 \node at (4.2,3.4) {$\bot \rightarrow $ f };
 \node at (5.8,3.4) {$\bot \rightarrow $ v };
 
+\node at (10,4.5) {$G_{c}$};
+\node at (5.5,10) {$G_{ct}$};
 
-
-
-%\draw [fill] (10,5.0) -- (, 5.8) -- (0.1,5.8) -- (0,6.2);
-%\draw [->] (0,0) -- (0,6);
-%\draw [fill] (9.2,0) -- (8.8,0.1) -- (8.8,-0.1)--(9.2,0.0);
-
-%\node at (9.0,-0.5) {$t$};
-%\node at (0.2,6.5) {$c(t)$};
-
-%\node at (-0.5,5.0)[blue]{$C_{reg}$};
-%\node at (-1,5.0*0.63)[purple]{$0,63.c_{reg}$};
-%\draw [purple, ultra thick, dashed] (0.0,5.0*0.63) -- (1.45,5.0*0.63)
-%						   -- (1.45,0.0);
-%\draw [blue, ultra thick] (0,0) to [out=85, in=180] (6,5);
-%\draw [blue, ultra thick] (6,5) -- (9,5);
-
-%\draw [<->] (0.0,-0.4) -- (1.45,-0.4); 
-%\node at (1.45/2,-0.7){$\tau$};
+\node at (4.5,9.2) {$+1$};
+\node at (9.0,5.5) {$+1$};
+\node at (5.5,1.0) {$-1$};
+\node at (1.0,4.5) {$-1$};
 
 \end{tikzpicture}
-\caption{Constante de tempo}
-\label{fig:constTempo}
+\caption{Representação do reticulado da LPA2v subdividido em 12 regiões}
+\label{fig:reticuladoLPA2v}
 \end{figure}
 
+
+
+
+\begin{itemize}
+\item V : Verdadeiro;
+\item F : Falso;
+\item $\top$ : Contradição;
+\item $\bot$ : Paracompleto.
+\end{itemize}
+e 8 regiões intermediárias: 
+\begin{itemize}
+\item Qv $\rightarrow  \top$ : Quase Verdade tendendo à Contradição;
+\item Qv $\rightarrow  \bot$ : Quase Verdade tendendo à  Paracompleto;
+\item Qf $\rightarrow  \top$ : Quase Falso tendendo à Contradição;
+\item Qf $\rightarrow  \bot$ : Quase Falso tendendo à Paracompleto;
+\item $\top \rightarrow $ f : Contradição tendendo à Falso;
+\item $\top \rightarrow $ v : Contradição tendendo à Verdadeiro;
+\item $\bot \rightarrow $ f : Paracompleto tendendo à Falso;
+\item $\bot \rightarrow $ v : Paracompleto tendendo à Verdadeiro.
+
+\end{itemize}
+
+O reticulado subdividido em 12 regiões como mostrado, é aplicado em situações nas quais a tomada de decisão utiliza estados discretos bem definidos para atuação, onde para cada posição da anotação e respectivamente um estado do reticulado, uma ação é tomada, assim sendo, a quantidade de subdivisões está fortemente dependente da aplicação.
+
+
+O reticulado pode ser dividido de outras formas, dependendo dos limites dos Graus de Certeza e Contradição que o sistema permite. A Figura \ref{fig:reticuladoLPA2v2} mostra uma das possibilidades com a representação de 8 regiões do reticulado. 
+
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[scale=1.0]
+\tikzset{ >=latex, inner sep=0pt, outer sep=0pt,  }
+
+%\draw [lightgray, dashed](0,0) grid (10,10);
+
+\node at (10,4.5) {$G_{c}$};
+\node at (5.5,10) {$G_{ct}$};
+
+\node at (4.5,9.2) {$+1$};
+\node at (9.0,5.5) {$+1$};
+\node at (5.5,1.0) {$-1$};
+\node at (1.0,4.5) {$-1$};
+
+\node [fill=black, circle] (V) at (9,5) {:};
+\node [fill=black, circle] (F) at (1,5) {:};
+\node [fill=black, circle] (T) at (5,9) {:};
+\node [fill=black, circle] (L) at (5,1) {:};
+
+\node [fill=black, circle] (N) at (5,7) { };
+\node [fill=black, circle] (S) at (5,3) { };
+\node [fill=black, circle] (E) at (7,5) { };
+\node [fill=black, circle] (W) at (3,5) { };
+
+\node [fill=black, circle] (NE) at (8,6) { };
+\node [fill=black, circle] (SE) at (8,4) { };
+\node [fill=black, circle] (NW) at (2,6) { };
+\node [fill=black, circle] (SW) at (2,4) { };
+
+\draw [->, thick] (V)   -- (10,5);
+\draw [    thick] (0,5) -- (F);
+\draw [->, thick] (T)   -- (5,10);
+\draw [    thick] (5,0) -- (L);
+
+\draw [thick] (V) -- (T);
+\draw [thick] (T) -- (F);
+\draw [thick] (F) -- (L);
+\draw [thick] (L) -- (V);
+
+\draw [thick] (NE) -- (SW);
+\draw [thick] (SE) -- (NW);
+
+\draw[thick] (SW) rectangle (NE);
+\fill[nearly transparent] (SW) rectangle (NE);
+
+\node at (8.5,5.0) {V};
+\node at (1.5,5.0) {F};
+\node at (5.0,8.0) {$\top$};
+\node at (5.0,2.0) {$\bot$};
+
+\node at (7.0,5.0) {Qv};
+\node at (3.0,5.0) {Qf};
+\node at (5.0,5.5) {Q$\top$};
+\node at (5.0,4.5) {Q$\bot$};
+
+\end{tikzpicture}
+\caption{Representação do reticulado da LPA2v subdividido em 8 regiões}
+\label{fig:reticuladoLPA2v2}
+\end{figure}
+
+Sendo 4 regiões extremas,
+\begin{itemize}
+\item V : Verdadeiro;
+\item F : Falso;
+\item $\top$ : Contradição;
+\item $\bot$ : Paracompleto.
+\end{itemize}
+e 4 regiões intermediárias: 
+\begin{itemize}
+\item Qv: Quase Verdade;
+\item Qf: Quase Falso;
+\item Q$\top$: Quase Contradição;
+\item Q$\bot$: Quase Paracompleto.
+
+\end{itemize}
+
+
+%###
+
+É possível e desejável que se posso utilizar um valor resultante que exclua os efeitos das incertezas ou contradições, 
+como é citado por 
+\citeauthor{JairJoaoGermano}(\citeyear{JairJoaoGermano}): 
+\begin{citacao}
+{
+"Um sistema de decisão capaz de analisar dados originários de Conhecimento Incerto terá maior robustez quando, 
+ao final da análise,
+apresentar um resultado que represente o valor de certeza puro, 
+isto é, não contaminado pelos efeitos das incertezas."
+}
+\end{citacao}
+
+O valor que elimina o efeito da incerteza é denominado \emph{Grau de Certeza Real - G$_{CR}$} 
+e é calculado pela distância (D) do Ponto de análise, $(G_c,G_{ct})$, 
+em relação ao ponto de máximo Grau de Certeza $V$, 
+no vértice direito do reticulado, 
+conforme mostrado na Figura \ref{fig:reticuladoGer}.
+
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[scale=1.0]
+\tikzset{ >=latex, inner sep=0pt, outer sep=0pt,  }
+
+\draw [lightgray, dashed](0,0) grid (10,10);
+
+\node at (10,4.5) {$G_{c}$};
+\node at (5.5,10) {$G_{ct}$};
+
+\node at (4.5,9.2) {$+1$};
+\node at (9.0,5.5) {$+1$};
+\node at (5.5,1.0) {$-1$};
+\node at (1.0,4.5) {$-1$};
+
+\node at (9.0,4.5) {V};
+\node at (1.0,5.5) {F};
+\node at (5.5,9.0) {$\top$};
+\node at (4.5,1.0) {$\bot$};
+
+\node [fill=black, circle] (V) at (9,5) {:};
+\node [fill=black, circle] (F) at (1,5) {:};
+\node [fill=black, circle] (T) at (5,9) {:};
+\node [fill=black, circle] (L) at (5,1) {:};
+
+\draw [thick] (V) -- (T);
+\draw [thick] (T) -- (F);
+\draw [thick] (F) -- (L);
+\draw [thick] (L) -- (V);
+
+\draw [->, thick] (V)   -- (10,5);
+\draw [    thick] (0,5) -- (F);
+\draw [->, thick] (T)   -- (5,10);
+\draw [    thick] (5,0) -- (L);
+
+\draw [lightgray,dashed] (V) -- (F);
+\draw [lightgray,dashed] (T) -- (L);
+
+\node [fill=black, circle] (P) at (6.0,7.0) {:};
+\node [fill=gray,  circle] (p) at (5.4,5.0) [gray] {:};
+\node [fill=black, circle] (r) at (6.0,5.0) [gray]{.};
+
+\draw [blue,ultra thick] (P) -- (V);
+\draw [green ] (r) -- (V);
+\draw [yellow] (P) -- (r);
+%\draw [green,ultra thick] (9.0,4.9) -- (5.4,4.9);
+
+\draw [red, ultra thick,<-]  (p) to [out=85, in=236] (P);
+
+\node at (7.0,6.0) [blue]{D};
+\node at (5.7,7.4) {($G_c$,$G_{ct}$)};
+\node at (5.5,4.6) {$G_{CR}$};
+
+\end{tikzpicture}
+\caption{Representação do Grau de Certeza Real no reticulado }
+\label{fig:reticuladoGer}
+\end{figure}
+
+
+O Grau de Certeza Real ($G_{CR}$) 
+é calculado utilizando o Teorema de Pitágoras para achar a distância D 
+conforme Equação \ref{eq:grauCertezaReal}. 
+
+\begin{center}
+\begin{equation}
+D = \sqrt{(1-|G_c|)^2+G_{ct}^2}
+\label{eq:grauCertezaReal}
+\end{equation}
+\end{center}
+
+Para valores de $G_c \geq 0$: 
+
+\begin{center}
+\begin{equation}
+G_{CR} = (1-D)
+\end{equation}
+\end{center}
+
+Para valores de $G_c < 0$:
+
+\begin{center}
+\begin{equation}
+G_{CR} = (D-1)
+\end{equation}
+\end{center}
+
+
+Tanto o Grau de Evidência Real quanto os estados ou regiões do reticulado 
+podem ser utilizados para realizar o controle dos mais diversos tipos de sistemas, 
+dependendo apenas do tipo de controle e de sistema que deve ser implementado. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{A LPA2v aplicada em Controle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-A LPA2v aplicada em sistemas de controle utiliza além dos conceitos já estabelecidos, duas outras definições para sua implementação e são elas o \emph{ Grau de Certeza Real ($G _{CR}$)} e o \emph{Grau de Evidência Real ($\mu _{ER}$)}.
-
-\# em desenvolvimento \#
-
 
 Os Sistemas Inteligentes estão cada vez mais presentes em diversas aplicações modernas, 
 e segundo \citeauthor{JISF2011}(\citeyear{JISF2011}), 
