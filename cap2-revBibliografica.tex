@@ -752,7 +752,7 @@ conforme mostrado na Figura \ref{fig:reticuladoGer}.
 \begin{tikzpicture}[scale=1.0]
 \tikzset{ >=latex, inner sep=0pt, outer sep=0pt,  }
 
-\draw [lightgray, dashed](0,0) grid (10,10);
+%\draw [lightgray, dashed](0,0) grid (10,10);
 
 \node at (10,4.5) {$G_{c}$};
 \node at (5.5,10) {$G_{ct}$};
@@ -842,17 +842,18 @@ dependendo apenas do tipo de controle e de sistema que deve ser implementado.
 \subsection{A LPA2v aplicada em Controle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Os Sistemas Inteligentes estão cada vez mais presentes em diversas aplicações modernas, 
+Os Sistemas Inteligentes estão cada vez mais presentes 
+em diversas aplicações modernas, 
 e segundo \citeauthor{JISF2011}(\citeyear{JISF2011}), 
 há um predomínio de Lógicas Não-Clássicas no suporte à tomada de decisão desses sistemas. 
 O sucesso na aplicação de técnicas como a LPA2v, 
 que é uma extensão da Lógica Paraconsistente Anotada, 
 se dá em grande medida pelo uso de 
-algorítmos baseados em estudos dos reticulado representativo e 
+algorítmos baseados em estudos dos reticulados representativos e 
 efetiva tradução matemática 
 gerando um modelo eficiente aplicado em situações reais.
 
-Tomando que a lógica filosófica trata da descrição formal da linguagem natural 
+Assumindo que a lógica filosófica trata da descrição formal da linguagem natural 
 e define a sua estrutura de declaração, então, 
 sendo encontrada a linguagem adequada 
 é possível traduzir o raciocínio formal em LPA, 
@@ -864,13 +865,14 @@ que aplica regras computacionais,
 a LPA2v possui um conjunto de axiomas e regras de inferência 
 que possibilitam um raciocínio válido em situações reais.
 
+\subsubsection{Robótica}
 
 Os algorítmos baseados no estudo do Reticulado Representativo gera 
 Estados Lógicos Paraconsistentes através da 
 descrição do algorítmo Para-Analisador da LPA2v, 
 possibilitando que o sistema receba informação 
 através dos graus de evidência ($\mu, \lambda$), 
-processe os graus de certeza e contradição ($G_c e G_{ct}$ e 
+processe os graus de certeza e contradição ($G_c$ e $G_{ct}$) e 
 chegue a uma conclusão, de alta contradição e busque por mais dados ou 
 um alto grau de certeza, que de um modo geral, implica em tomar uma ação. 
 
@@ -882,10 +884,58 @@ como apresentado pelo Professor Dr. João Inácio da Silva Filho
 com a construção do Robô Emmy, 
 desenvolvendo e aplicando tais técnicas aplicadas ao sistema de movimentação.
 
+\subsubsection{Engenharia de Produção}
+
+A LPA2v pode ser aplicada em diversas áreas 
+sendo um outro exemplo a sua aplicação na 
+área de Eng. de Produção, 
+como é mostrado no artigo de 
+\citeauthor{FabioIsraelJair}(\citeyear{FabioIsraelJair}), 
+que mostram um estudo para avaliação do projeto de uma fábrica, 
+como são selecionadas as variáveis relevantes, ou fatores, como são chamados,
+níveis de exigência para tomada de decisão, 
+atribuição de pesos aos fatores de decisão, 
+para obtenção dos graus de crença e descrença. 
+Construção de uma base de dados, sua pesquisa e obtenção dos resultados.
+Análise dos resultados e fidedignidade utilizando um 
+Método de Análise pelo Baricentro.
+
+\subsubsection{Logística}
+
+No segmento logístico pode-se citar a dissertação do 
+Profº Me. Vander Célio Nunes (\cite{Vander}), 
+que aplicou a LPA2v ao processo de paletização 
+através da medição de peças e do tratamento de incertezas 
+relacionadas a possibilidade de seu depósito ou encaixe na pilha de palets, 
+levando à otimização de cargas armazenadas em um determinado espaço. 
+O seu trabalho, utilizando uma célula de manufatura 
+com um braço robótico industrial, 
+permite a extrapolação da sua aplicação para portos e armazens de containers.
+
+
+\subsubsection{Sistema de Controle Híbrido}
+
+No segmento de controle, a LPA2v é utilizada em conjunto com um 
+sistema Proporcional-Integral - PI de modo que 
+as ações convencionais são executadas pelo bloco PI, 
+mas são estruturadas utilizando a LPA2v no 
+tratamento dos sinais externos. 
+A implementação é feita por 
+\citeauthor{Marcelo}(\citeyear{Marcelo}) 
+em uma planta de controle de nível e um
+controlador lógico programável. 
+Os sistema Híbrido é posto em operação e 
+comparado com técnicas consagradas como o 
+controle puramente PI, ajustado com o
+método de Ziegler-Nichols e com o 
+método interno do controlador. 
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 
