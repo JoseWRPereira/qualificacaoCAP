@@ -45,6 +45,7 @@ ficando o sistema conhecido pela sigla em inglês SISO (\emph{Single In Single O
 
 \begin{figure}[!htb]
 \centering
+\caption{ Diagrama de blocos de sistema de controle}
 \begin{tikzpicture}[scale=1]
 %\draw [lightgray](0,0) grid (9,2);
 \draw (0,1) -- (3,1);
@@ -58,7 +59,6 @@ ficando o sistema conhecido pela sigla em inglês SISO (\emph{Single In Single O
 \node [above] at (7.5,1){Variável};
 \node [below] at (7.5,1){Controlada};
 \end{tikzpicture}
-\caption{ Diagrama de blocos de sistema de controle}
 \label{fig:processo}
 \end{figure}
 
@@ -69,7 +69,7 @@ uma entrada, para o valor de referência,
 e uma saída com o valor da variável controlada.
 
 
-Em \citeauthor{Ogata}(\citeyear{Ogata}) - Capítulo 3.3 - 
+Em \citeauthor{Ogata}(\citeyear{Ogata}) % - Capítulo 3.3 - 
 são encontradas definições, 
 comentários sobre vantagens, 
 aplicações e procedimento para construção de Diagramas de blocos, 
@@ -112,6 +112,7 @@ e a resposta real é aceita como tendo atingido o valor de resposta desejada.
 
 \begin{figure}[!htb]
 \centering
+\caption{Gráfico da função Resposta}
 \begin{tikzpicture}[scale=1.00]
 %\draw [lightgray, dashed](0,0) grid (8.8,5.8);
 
@@ -142,7 +143,6 @@ e a resposta real é aceita como tendo atingido o valor de resposta desejada.
 \node at (7.0,3.4)[purple]{{Erro de Regime Estacionário}};
 
 \end{tikzpicture} 
-\caption{Gráfico da função Resposta}
 \label{fig:funcaoResposta}
 \end{figure}
 
@@ -164,8 +164,8 @@ sendo a primeira através dos testes e levantamento empírico da sua curva de re
 quando trabalha-se com elementos já bem estudados e com a equação que representa seu comportamento empírico bem estabelecida por diversos estudos anteriores.
 
 
-Em \citeauthor{dorf2011modern}(\citeyear{dorf2011modern}) - 
-Capítulo 7.6 - \emph{PID Controllers} 
+Em \citeauthor{dorf2011modern}(\citeyear{dorf2011modern}) 
+%- Capítulo 7.6 - \emph{PID Controllers} 
 é abordado o controlador PID, 
 uma das principais soluções e a mais encontrada em aplicações industriais segundo \citeauthor{Ogata}(\citeyear{Ogata}), 
 que trata do mesmo tema e as versões de PID modificados no Capítulo 10 de seu trabalho. 
@@ -187,7 +187,16 @@ Ações de controle do tipo PID são responsáveis por controlar a planta e aten
 
 O controle moderno trata de sistemas multivariáveis, não lineares ou variantes no tempo de forma mais apropriada do que o controle clássico, reduzindo a complexidade das expressões para que haja a possibilidade de um processamento satisfatório.
 Dentro do universo do controle moderno, existe ainda o controle convencional que utiliza a análise de sistemas de controle no espaço de estados, que utiliza n-equações de primeira ordem combinadas em uma equação diferencial vetor-matricial, de forma a simplificar e possibilitar o trabalho com uma quantidade de variáveis alta sem que haja um grande impacto no processamento.  \cite{Ogata} 
-Outra forma de controle moderno é denominada controle não convencional, aonde estão situadas diversas técnicas como controle adaptativo, algoritmos adaptativo e genético, redes neurais, as lógicas Fuzzy e Paraconsistente, que é alvo da abordagem do presente trabalho, entre outras.
+Existem ainda o controle não convencional, 
+que também é classificado como controle moderno e que
+apresenta uma grande diversidade de técnicas, 
+tais como o controle adaptativo, 
+algorítmo adaptativo e genético, 
+redes neurais, 
+as lógicas Fuzzy e Paraconsistente, 
+esta última sendo o alvo da abordagem do presente trabalho, 
+entre outras.
+
 
 A lógica, como ramo filosófico que trata das relações de coerência racional e discursiva, proposições e conclusões, tem como origem a Grécia Antiga com o seu primeiro arranjo formal em \emph{Tópicos} de Aristóteles por volta de 340 a.C. Apesar de suas bases serem conhecidas e discutidas por diversos pensadores anteriores, não havia a formalização de uma teoria bem fundada, apenas o tratamento de ideias como consistência e consequências da contraditoriedade por exemplo. 
 
@@ -319,8 +328,8 @@ paracompleto,% ($\bot$),
 respectivamente, e são representadas conforme Figura \ref{fig:reticuladoHasse}; 
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.0]{./pic/C421reticuladoHasse.eps}
 \caption{Reticulado finito de Hasse}
+\center\includegraphics[scale=1.0]{./pic/C421reticuladoHasse.eps}
 \label{fig:reticuladoHasse}
 \end{figure}
 
@@ -393,8 +402,8 @@ Uma outra forma de representação da anotação é utilizando o Quadrado Unitá
 
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.0]{./pic/C422qupc.eps}
 \caption{Representação do reticulado no quadrado unitário no plano cartesiano}
+\center\includegraphics[scale=1.0]{./pic/C422qupc.eps}
 \label{fig:reticuladoQUPC}
 \end{figure}
 
@@ -410,8 +419,8 @@ Os pontos extremos assim representam:
 O segmento de reta $\overline{BD}$, entre os pontos referentes às condições $Verdade$ e $Falso$, conforme mostrado na Figura \ref{fig:retaPerfeitamenteDefinida}, é denominada de \emph{Reta Perfeitamente Definida} e dada uma anotação $(\mu, \lambda )$ situada nela, a soma das evidências anotadas é sempre o valor unitário do quadro. 
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.25]{./pic/C424retaPerfeitamenteDefinida.eps}
 \caption{Representação da Reta Perfeitamente Definida}
+\center\includegraphics[scale=1.25]{./pic/C424retaPerfeitamenteDefinida.eps}
 \label{fig:retaPerfeitamenteDefinida}
 \end{figure}
 
@@ -475,8 +484,8 @@ e
 O segmento de reta $\overline{ AC }$ , entre os pontos referentes às condições \emph{Paracompleto} e \emph{Contradição}, conforme mostrado na Figura \ref{fig:retaPerfeitamenteIndefinida}, é denominada de \emph{Reta Perfeitamente Indefinida} e dada uma anotação $(\mu, \lambda )$ situada nela, a subtração das evidências anotadas é sempre zero, $\mu = \lambda$, e de forma contrária, quando a anotação está posicionada de forma não coincidente à Reta Perfeitamente Indeterminada, significa que $\mu \neq \lambda$.
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.25]{./pic/C426retaPerfeitamenteIndefinida.eps}
 \caption{Representação da Reta Perfeitamente Indefinida}
+\center\includegraphics[scale=1.25]{./pic/C426retaPerfeitamenteIndefinida.eps}
 \label{fig:retaPerfeitamenteIndefinida}
 \end{figure}
 
@@ -518,8 +527,8 @@ e
 Graficamente são representadas como mostra a Figura \ref{fig:retasgcgct}:
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.0]{./pic/C428retasgcgct.eps}
 \caption{Representação dos Graus de Certeza e Contradição em um plano cartesiano}
+\center\includegraphics[scale=1.0]{./pic/C428retasgcgct.eps}
 \label{fig:retasgcgct}
 \end{figure}
 
@@ -534,8 +543,8 @@ A representação ainda é dividia em algumas partes, dependendo da aplicação,
 \end{itemize}
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.0]{./pic/C429valorControle.eps}
 \caption{Representação dos valores de controle}
+\center\includegraphics[scale=1.0]{./pic/C429valorControle.eps}
 \label{fig:valorControle}
 \end{figure}
 
@@ -551,6 +560,7 @@ Uma divisão em 12 partes é mostrada na Figura \ref{fig:reticuladoLPA2v} com se
 
 \begin{figure}[!h]
 \centering
+\caption{Representação do reticulado da LPA2v subdividido em 12 regiões}
 \begin{tikzpicture}[scale=1.0]
 \tikzset{ >=latex, inner sep=0pt, outer sep=0pt,  }
 
@@ -616,7 +626,6 @@ Uma divisão em 12 partes é mostrada na Figura \ref{fig:reticuladoLPA2v} com se
 \node at (1.0,4.5) {$-1$};
 
 \end{tikzpicture}
-\caption{Representação do reticulado da LPA2v subdividido em 12 regiões}
 \label{fig:reticuladoLPA2v}
 \end{figure}
 
@@ -650,6 +659,7 @@ O reticulado pode ser dividido de outras formas, dependendo dos limites dos Grau
 
 \begin{figure}[!h]
 \centering
+\caption{Representação do reticulado da LPA2v subdividido em 8 regiões}
 \begin{tikzpicture}[scale=1.0]
 \tikzset{ >=latex, inner sep=0pt, outer sep=0pt,  }
 
@@ -705,7 +715,6 @@ O reticulado pode ser dividido de outras formas, dependendo dos limites dos Grau
 \node at (5.0,4.5) {Q$\bot$};
 
 \end{tikzpicture}
-\caption{Representação do reticulado da LPA2v subdividido em 8 regiões}
 \label{fig:reticuladoLPA2v2}
 \end{figure}
 
@@ -728,7 +737,7 @@ e 4 regiões intermediárias:
 
 %###
 
-É possível e desejável que se posso utilizar um valor resultante que exclua os efeitos das incertezas ou contradições, 
+É possível e desejável que se possa utilizar um valor resultante que exclua os efeitos das incertezas ou contradições, 
 como é citado por 
 \citeauthor{JairJoaoGermano}(\citeyear{JairJoaoGermano}): 
 \begin{citacao}
@@ -749,6 +758,7 @@ conforme mostrado na Figura \ref{fig:reticuladoGer}.
 
 \begin{figure}[!h]
 \centering
+\caption{Representação do Grau de Certeza Real no reticulado }
 \begin{tikzpicture}[scale=1.0]
 \tikzset{ >=latex, inner sep=0pt, outer sep=0pt,  }
 
@@ -801,7 +811,6 @@ conforme mostrado na Figura \ref{fig:reticuladoGer}.
 \node at (5.5,4.6) {$G_{CR}$};
 
 \end{tikzpicture}
-\caption{Representação do Grau de Certeza Real no reticulado }
 \label{fig:reticuladoGer}
 \end{figure}
 
@@ -924,7 +933,7 @@ A implementação é feita por
 \citeauthor{Marcelo}(\citeyear{Marcelo}) 
 em uma planta de controle de nível e um
 controlador lógico programável. 
-Os sistema Híbrido é posto em operação e 
+O sistema Híbrido é posto em operação e 
 comparado com técnicas consagradas como o 
 controle puramente PI, ajustado com o
 método de Ziegler-Nichols e com o 

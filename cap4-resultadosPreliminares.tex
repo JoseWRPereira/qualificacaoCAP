@@ -9,6 +9,7 @@
 
 \begin{figure}[!htb]
 \center
+\caption{Visão geral do sistema }
 \subfloat[]{
 	\label{fig:discoSensor}
 	\includegraphics[scale=0.07, angle=0, clip=true, trim=300 200 1200 200]{./imagens/discoSensor.jpg}
@@ -18,7 +19,6 @@
 	\includegraphics[scale=0.07, angle=0, clip=true, trim=300 200 400 200]{./imagens/discoSensorGeral.jpg} 
 	}
 
-\caption{Visão geral do sistema }
 \end{figure}
 
 
@@ -32,6 +32,7 @@ Para melhor compreensão dos modelos dinâmicos dos sistemas, é utilizado o Dia
 
 \begin{figure}[!htb]
 \centering
+\caption{ Diagrama de blocos de sistema de controle em malha aberta}
 \begin{tikzpicture}[scale=0.85]
 %\draw [lightgray](0,0) grid (15,2);
 \draw (0,1) -- (3,1);
@@ -53,7 +54,6 @@ Para melhor compreensão dos modelos dinâmicos dos sistemas, é utilizado o Dia
 \node [above] at (13.5,1){Variável};
 \node [below] at (13.5,1){Controlada};
 \end{tikzpicture}
-\caption{ Diagrama de blocos de sistema de controle em malha aberta}
 \label{fig:malhaAberta}
 \end{figure}
 
@@ -65,6 +65,7 @@ Utilizando variáveis para cada elemento do Diagrama de blocos, de forma a repre
 
 \begin{figure}[!htb]
 \centering
+\caption{ Sistema de controle em malha aberta}
 \begin{tikzpicture}[scale=0.85]
 %\draw [lightgray](0,0) grid (15,2);
 \draw (0,1) -- (3,1);
@@ -85,7 +86,6 @@ Utilizando variáveis para cada elemento do Diagrama de blocos, de forma a repre
 \node [above] at ( 7.5,1){u(t)};
 \node [above] at (13.5,1){c(t)};
 \end{tikzpicture}
-\caption{ Sistema de controle em malha aberta}
 \label{fig:AcaoMalhaAberta}
 \end{figure}
 
@@ -145,7 +145,7 @@ $K$ : Constante de proporcionalidade;
 $s$ : Variável complexa de Laplace;
 
 $a$ : Polo da função.
-\setlength{\parindent}{0cm}
+\setlength{\parindent}{1cm}
 
 
 
@@ -166,6 +166,7 @@ A Figura \ref{fig:degrauA} mostra um sinal do tipo degrau com amplitude \textbf{
 
 \begin{figure}[!htb]
 \centering
+\caption{Sistema de Primeira Ordem}
 \subfloat[Sinal de entrada tipo degrau com amplitude A]{\label{fig:degrauA}
 \begin{tikzpicture}[scale=0.75]
 \draw [lightgray, dashed](0,0) grid (8.8,5.8);
@@ -192,7 +193,6 @@ A Figura \ref{fig:degrauA} mostra um sinal do tipo degrau com amplitude \textbf{
 \draw [blue, ultra thick] (0,0) to [out=85, in=180] (6,5);
 \draw [blue, ultra thick] (6,5) -- (9,5);
 \end{tikzpicture}}
-\caption{Sistema de Primeira Ordem}
 \label{fig:sistPrimeiraOrdem}
 \end{figure}
 
@@ -231,6 +231,7 @@ a = \frac{1}{\tau}
 
 \begin{figure}
 \centering
+\caption{Constante de tempo}
 \begin{tikzpicture}[scale=1.0]
 \draw [lightgray, dashed](0,0) grid (8.8,5.8);
 
@@ -253,7 +254,6 @@ a = \frac{1}{\tau}
 \node at (1.45/2,-0.7){$\tau$};
 
 \end{tikzpicture}
-\caption{Constante de tempo}
 \label{fig:constTempo}
 \end{figure}
 
@@ -289,8 +289,8 @@ K = \frac{ac_{reg}}{A}
 A Figura \ref{fig:AcaoMalhaAberta} mostra um sinal do tipo degrau aplicado como referência no valor de \emph{25 rps}, a curva de comportamento real medida empiricamente e a curva aproximada calculada pelo método determinístico como segue:
 
 \begin{figure}[!htb]
-\center\includegraphics[scale=1.4]{./imagens/acaoMalhaAbertaTau.eps}
 \caption{Ação de Controle em Malha Aberta}
+\center\includegraphics[scale=1.4]{./imagens/acaoMalhaAbertaTau.eps}
 \label{fig:acaoMalhaAberTau}
 \end{figure}
 
@@ -314,6 +314,12 @@ Aplicando a Transformada de Laplace:
   \frac{C(s)}{R(s)} = \frac{K}{s+a} = \frac{0,4}{s+0,4}
 \end{equation}
 
+
+Para a equação no formato canônico tanto o numerador quanto o denominador são divididos pelo próprio valor de $K$. Assim temos que:
+
+\begin{equation}
+  \frac{C(s)}{R(s)} = \frac{1}{\tau s+1} = \frac{1}{2,5 s+1}
+\end{equation}
 
 
 Baseado no gráfico mostrado na Figura \ref{fig:acaoMalhaAberTau}, o valor de tempo em que o motor assume a velocidade de referência é aproximadamente $5\tau$, 12,5 s, e como objetivo para uma primeira versão da implementação do controle utilizando LPA2v é proposto que o sistema reduza o tempo de alcance da velocidade alvo em um tempo de no máximo $1\tau$, ou seja, $2,5 s$.
@@ -347,28 +353,41 @@ n : número da amostra aquisitada;
 
 N : número total de amostras.
 
-Obs.: As aquisições iniciaram com tempo inicial de 0,00 s até o tempo final de 22,40 segundos, com intervalo de 10 milisegundos entre aquisições, totalizando 2240 amostras.
+Obs.: As aquisições começaram com tempo inicial de 0,00 s até o tempo final de 22,40 segundos, com intervalo de 10 milisegundos entre aquisições, totalizando 2240 amostras.
 
-\setlength{\parindent}{0cm}
+\setlength{\parindent}{1cm}
 
-A Tabela \ref{tab:ErroModelo} mostra o erro médio relativo calculado para diferentes intervalos de tempo. O primeiro valor contempla o intervalo completo de tempo amostrado, de 0,00 até 22,40 s com um erro de 10,77\%. Porém devido a não linearidade inicial, ocorre uma distorção bem grande que pode ser visto nos dois outros intervalos, de 0,00 a 0,50 segundos com erro de 364,13\%, completamente não aceitável, mas que após os 50 milisegundos iniciais, o erro médio é de 2.71\%. 
+%A Tabela \ref{tab:ErroModelo} mostra o erro médio relativo calculado para diferentes intervalos de tempo. O primeiro valor contempla o intervalo completo de tempo amostrado, de 0,00 até 22,40 s com um erro de 10,77\%. Porém devido a não linearidade inicial, ocorre uma distorção bem grande que pode ser visto nos dois outros intervalos, de 0,00 a 0,50 segundos com erro de 364,13\%, completamente não aceitável, mas que após os 50 milisegundos iniciais, o erro médio é de 2.71\%. 
 
+%Considerando que o intervalo inicial não é pertinente ou relevante para análise aqui proposta,
+%assumindo um valor inicial de 50 milisegundos e 
+%calculando e erro médio, chegou-se ao valor de 2,71\% de erro 
+%para todo o restante da aquisição,
+%valor este que é considerado otimo para o modelo.
 
-\begin{table}[h]
-\centering
-\caption{Erro Relativo Percentual}
-\label{tab:ErroModelo}
+Foi obtido um valor médio de 2,71\% de erro 
+para o intervalo de aquisição de 50ms até os 22,40 s, 
+que é o fim da aquisição, 
+desconsiderando a região transitória não linear 
+que ocorre nos instantes iniciais, 
+mas que considera-se não relevante para a atual análise, 
+inclusive pelo baixo valor de erro no restante do intervalo de comparação.
 
-\begin{tabular}{c|c}
-\hline
-Intervalo de amostras  &  erro médio relativo \\ \hline
-\hline
-0,00 a 22,40 s  &   10,77 \% \\ \hline
-0,00 a  0,50 s 	&  364,13 \% \\ \hline
-0,50 a 22,40 s  &    2,71 \% \\ \hline
+%\begin{table}[h]
+%\centering
+%\caption{Erro Relativo Percentual}
+%\label{tab:ErroModelo}
 
-\end{tabular}
-\end{table}
+%\begin{tabular}{c|c}
+%\hline
+%Intervalo de amostras  &  erro médio relativo \\ \hline
+%\hline
+%0,00 a 22,40 s  &   10,77 \% \\ \hline
+%0,00 a  0,50 s 	&  364,13 \% \\ \hline
+%0,50 a 22,40 s  &    2,71 \% \\ \hline
+
+%\end{tabular}
+%\end{table}
 
 
 De forma mais detalhada, 
@@ -388,7 +407,7 @@ que o erro de estado estacionário, para o intervalo acima de 5 $\tau$, é menor
 \hline
 Intervalo de amostras  &  erro médio relativo \\ \hline
 \hline
-0 a 1 $\tau$ & 83,40 \% \\ \hline
+%0 a 1 $\tau$ & 83,40 \% \\ \hline
 1 a 2 $\tau$ &  3,16 \% \\ \hline
 2 a 3 $\tau$ &  3,38 \% \\ \hline
 3 a 4 $\tau$ &  2,00 \% \\ \hline
@@ -397,20 +416,304 @@ $>$ 5 $\tau$ &  0,82 \% \\ \hline
 \end{tabular}
 \end{table}
 
-O intervalo inicial, de 0 a 1$\tau$ apresenta um grande erro, devido a não linearidade já comentada anteriormente, que ocorre nos primeiros 50 ms. 
+%O intervalo inicial, de 0 a 1$\tau$ apresenta um grande erro, devido a não linearidade já comentada anteriormente, que ocorre nos primeiros 50 ms. 
 
 Desconsiderando a região transitória não linear 
 que ocorre nos instantes iniciais do movimento do eixo do motor, 
-o erro é menor do que 3\%, conforme mostrado na Tabela \ref{tab:ErroModelo},
-ou ainda na análise com todos os intervalos com dimensão de 1$\tau$, 
-os valores de erro após o primeiro intervalo 
-estão dentro do limite de 5\% de erro,  
-conforme mostrado na Tabela \ref{tab:ErroModeloTau}, 
-ressaltando que para o regime estacionário o erro é menor do que 1\%.
+o intervalo de maior erro é de 3,38\%, 
+conforme mostrado na Tabela \ref{tab:ErroModeloTau},
+ressaltando ainda que no regime estacionário 
+o erro é menor do que 1\%.
 Assim, considera-se que o modelo utilizado é bom e representa razoavelmente bem o sistema físico real.
 
 
-\subsection{Etapas a serem desenvolvidas}
+
+
+
+\section{Resultados}
+
+O processo de implementação da LPA2v como parte do núcleo do controlador 
+produziu algumas tentativas sendo que segue aquela de melhor resultado, 
+não esgotando as formas e tentativas que poderão se seguir no decorrer da pesquisa, 
+mas como resultado preliminar,
+seguem os resultados obtidos e a forma como foi realizada a codificação.
+
+O código da Figura \ref{fig:codigoGcGct} mostra 
+a implementação da função que calcula os graus de Certeza e Contradição 
+tendo como parâmetro de entrada dois graus de evidência favoráveis.
+
+A LPA2v foi codificada utilizando variáveis do tipo ponto flutuante 
+de forma a trabalhar com os seus parâmetros da mesma forma como a lógica é 
+proposta e analisada conceitualmente, por isso, inclusive, 
+a utilização de um microcontrolador com um módulo dedicado 
+ao cálculo utilizando variáveis desse tipo. 
+
+
+\begin{figure}[!htb]
+\centering
+\caption{Código de função que calcula os graus de Certeza e Contradição utilizando LPA2v}
+\begin{minipage}{0.9\linewidth}
+\begin{lstlisting}
+float Gc, Gct;
+
+void LPA2v( float u0, float u1 )
+{
+  float l0, l1;
+  l0 = 1.0 - u0;
+  l1 = 1.0 - u1;
+
+  Gc  = u0 - l1;
+  Gct = (u0 + l1) - 1.0;
+}
+\end{lstlisting}
+\end{minipage}
+\label{fig:codigoGcGct}
+
+{\small Fonte: Próprio autor}
+\end{figure}
+
+A função \texttt{LPA2v} possui como parâmetros de entrada 
+dois graus de certeza, simplesmente para facilitar o raciocínio,
+sendo que os respectivos graus de inceteza 
+são declarados como variáveis locais na linha 5 e calculados nas linhas 6 e 7.
+
+As linhas 9 e 10 apresentam o cálculo dos graus de Certeza e Contradição, 
+sendo as respectivas variáveis declaradas como globais, linha 1, 
+por serem elas utilizadas em outras funções.
+
+
+
+
+
+
+\begin{figure}[!htb]
+\centering
+\caption{Código de função do controlador utilizando a LPA2v}
+\begin{minipage}{0.9\linewidth}
+\lstset{firstnumber=12}
+\begin{lstlisting}
+#define KLP 	10
+long controlador( long setpoint, long max, long sensor )
+{
+  float aux, rT, hT;
+  long uT;
+
+  rT = (float) setpoint / (float) max;
+  hT = (float) sensor   / (float) max;
+
+  if( rT > 1.0 )
+    rT = 1.0;
+  if( hT > 1.0 )
+    hT = 1.0;
+  
+  aux = (rT * 100.0);
+
+  LPA2v( rT, hT );
+  
+  uT = (long)(aux + aux * Gct * KLP);
+  if( uT > 99 )
+    uT = 99;
+  if( uT < 0 ) 
+    uT = 0;
+  return( uT );
+}
+
+\end{lstlisting}
+\end{minipage}
+\label{fig:codigoControladorLPA2v}
+
+{\small Fonte: Próprio autor}
+\end{figure}
+
+
+
+
+
+
+\begin{figure}[!h]
+\centering
+\caption{Diagrama de blocos do controle utilizando a LPA2v}
+\begin{tikzpicture}[scale=1.0]
+\tikzset{ >=latex, inner sep=0pt, outer sep=0pt,  }
+
+%\draw [lightgray, dashed](0,0) grid (15,7);
+
+%%% Blocos 
+
+% K normalização rps -> 0..1
+\node [fill=black, circle] (KSP0) at (1,6.5) { };
+\node [fill=black, circle] (KSP1) at (2,5.5) { };
+\draw[thick] (KSP0) rectangle (KSP1);
+\fill[white, nearly transparent] (KSP0) rectangle (KSP1);
+\node [fill=black, circle] (KSPin)  at (1.0,6.0) { }; 
+\node [fill=black, circle] (KSPout) at (2.0,6.0) { }; 
+\node (Kn1) at (1.5,6.0) {$K_n$};
+
+% K normalização  0..1 --> %PWM
+\node [fill=black, circle] (KPWM0) at (4,6.5) { };
+\node [fill=black, circle] (KPWM1) at (5,5.5) { };
+\draw[thick] (KPWM0) rectangle (KPWM1);
+\fill[white, nearly transparent] (KPWM0) rectangle (KPWM1);
+\node [fill=black, circle] (KPWMin)  at (4.0,6.0) { };
+\node [fill=black, circle] (KPWMout) at (5.0,6.0) { };
+\node (K100) at (4.5,6.0) {$K_{\%}$};
+
+% Planta
+\node [fill=black, circle] (GT0) at (13,6.5) { };
+\node [fill=black, circle] (GT1) at (14,5.5) { };
+\draw[thick] (GT0) rectangle (GT1);
+\fill[white, nearly transparent] (GT0) rectangle (GT1);
+\node [fill=black, circle] (GTin)  at (13.0,6.0) { };
+\node [fill=black, circle] (GTout) at (14.0,6.0) { };
+\node (planta) at (13.5,6.0) {$g(t)$};
+
+% Saturação
+\node [fill=black, circle] (SAT0) at (11,6.5) { };
+\node [fill=black, circle] (SAT1) at (12,5.5) { };
+\draw[thick] (SAT0) rectangle (SAT1);
+\fill[white, nearly transparent] (SAT0) rectangle (SAT1);
+\node [fill=black, circle] (SATin)  at (11.0,6.0) { };
+\node [fill=black, circle] (SATout) at (12.0,6.0) { };
+\draw [thick] (11.2,5.7) -- (11.5,5.7) -- (11.5,6.3) -- (11.8,6.3);
+
+% Multiplicacao
+\node [fill=black, circle] (MUL0) at (8,4.5) { };
+\node [fill=black, circle] (MUL1) at (9,2.5) { };
+\draw[thick] (MUL0) rectangle (MUL1);
+\fill[white, nearly transparent] (MUL0) rectangle (MUL1);
+\node [fill=black, circle] (MULin0) at (8.0,4.0) { };
+\node [fill=black, circle] (MULin1) at (8.0,3.0) { };
+\node [fill=black, circle] (MULout) at (9.0,3.5) { };
+\node (multi) at (8.5,3.5) {$x$};
+
+% Klp
+\node [fill=black, circle] (KLP0) at (6,3.5) { };
+\node [fill=black, circle] (KLP1) at (7,2.5) { };
+\draw[thick] (KLP0) rectangle (KLP1);
+\fill[white, nearly transparent] (KLP0) rectangle (KLP1);
+\node [fill=black, circle] (KLPin)  at (6.0,3.0) { };
+\node [fill=black, circle] (KLPout) at (7.0,3.0) { };
+\node (KLP) at (6.5,3.0) {$K_{LP}$};
+
+% Sensor
+\node [fill=black, circle] (KS0) at (6,1.5) { };
+\node [fill=black, circle] (KS1) at (7,0.5) { };
+\draw[thick] (KS0) rectangle (KS1);
+\fill[white, nearly transparent] (KS0) rectangle (KS1);
+\node [fill=black, circle] (KSin)  at (7.0,1.0) { };
+\node [fill=black, circle] (KSout) at (6.0,1.0) { };
+\node (Kn2) at (6.5,1.0) {$K_n$};
+
+% LPA2v
+\node [fill=black, circle] (LPA0) at (3,4.5) { };
+\node [fill=black, circle] (LPA1) at (5,2.5) { };
+\draw[thick] (LPA0) rectangle (LPA1);
+\fill[white, nearly transparent] (LPA0) rectangle (LPA1);
+\node [fill=black, circle] (LPAu0) at (3.0,4.0) { };
+\node [fill=black, circle] (LPAu1) at (3.0,3.0) { };
+\node [fill=black, circle] (LPAgc)  at (5.0,4.0) { };
+\node [fill=black, circle] (LPAgct) at (5.0,3.0) { };
+\draw [thick] (4.0,4.5) -- (5.0,3.5) -- (4.0,2.5) -- (3.0,3.5) -- (4.0,4.5);
+\node (LPA2v) at (4.0,3.5) {$LPA2v$};
+\draw [thick] (LPAgc) -- (5.3,4.0);
+\node (LPA2vu0)  at (2.0,4.1) {$\mu _0$};
+\node (LPA2vu1)  at (2.0,3.1) {$\mu _1$};
+\node (LPA2vGc)  at (5.3,4.3) {$G_c$};
+\node (LPA2vGct) at (5.3,3.3) {$G_{ct}$};
+
+
+% Somador
+\node [fill=black, circle] (SUM) at (9.5,6.0) { };
+\filldraw[fill=white,thick] (SUM) circle (5mm);
+\node [fill=black, circle] (SUMin0) at ( 9.0,6.0) { };
+\node [fill=black, circle] (SUMin1) at ( 9.5,5.5) { };
+\node [fill=black, circle] (SUMout) at (10.0,6.0) { };
+\node (Sum0) at (9.2,6.0) {$+$};
+\node (Sum1) at (9.5,5.7) {$+$};
+
+
+
+%%% Linhas 
+
+% set point
+\draw [->, thick] (0.0,6.0) -- (KSPin);
+\node (rt) at (0.5,6.3) {$r(t)$};
+
+% setpoint -> normalização %PWM
+\draw [->, thick] (KSPout) -- (KPWMin);
+
+% normalização %PWM -> SUM
+\draw [->, thick] (KPWMout) -- (SUMin0);
+
+% SUM -> Saturação
+\draw [->, thick] (SUMout) -- (SATin);
+
+% Saturação -> GT
+\draw [->, thick] (SATout) -- (GTin);
+
+% GT -> fim
+\draw [->, thick] (GTout) -- (15,6);
+\node (ct) at (14.5,6.3) {$c(t)$};
+
+% LPA2v Gct -> KLP
+\draw [->, thick] (LPAgct) -- (KLPin);
+
+% KLP -> MULin1
+\draw [->, thick] (KLPout) -- (MULin1);
+
+% normalização 0..1 -> LPA2v u0
+\draw [->, thick] (2.5,6.0) -- (2.5,4.0) -- (LPAu0);
+
+% normalização %PWM -> MULT in0
+\draw [->, thick] (7.5,6.0) -- (7.5,4.0) -- (MULin0);
+
+% MULT out -> SUM in1
+\draw [->, thick] (MULout) -- (9.5,3.5) -- (SUMin1);
+
+% Fim -> sensor
+\draw [->, thick] (14.5,6.0) -- (14.5,1.0) -- (KSin);
+
+% Sensor -> LPA u2
+\draw [->, thick] (KSout) -- (2.5,1.0) -- (2.5,3.0) --(LPAu1);
+
+\end{tikzpicture}
+\label{fig:diagramaBlocosLPA2v}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{figure}[!htb]
+\caption{Ação de controle utilizando LPA2v}
+\vspace{-1cm}\center\includegraphics[scale=1.6]{./imagens/klpAll.eps}
+\label{fig:acaoLPA2v}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Ação de controle utilizando LPA2v para valores alvo variáveis}
+\vspace{-1cm}
+\center\includegraphics[scale=1.4]{./imagens/patam85.eps}
+\label{fig:acaoLPA2vpatam85}
+\end{figure}
+
+
+
+
+
+
+
+
+\section{Etapas a serem desenvolvidas}
 
 \begin{itemize}
 \item Estudar a LPA2v;
