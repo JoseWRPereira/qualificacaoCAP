@@ -434,10 +434,15 @@ Assim, considera-se que o modelo utilizado é bom e representa razoavelmente bem
 
 O processo de implementação da LPA2v como parte do núcleo do controlador 
 produziu algumas tentativas sendo que segue aquela de melhor resultado, 
-não esgotando as formas e tentativas que poderão se seguir no decorrer da pesquisa, 
-mas como resultado preliminar,
-seguem os resultados obtidos e a forma como foi realizada a codificação.
+não esgotando as formas e tentativas que poderão se seguir 
+no decorrer da pesquisa.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
 O código da Figura \ref{fig:codigoGcGct} mostra 
 a implementação da função que calcula os graus de Certeza e Contradição 
 tendo como parâmetro de entrada dois graus de evidência favoráveis.
@@ -525,10 +530,16 @@ long controlador( long setpoint, long max, long sensor )
 {\small Fonte: Próprio autor}
 \end{figure}
 
+\end{comment}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
+A Figura \ref{fig:diagramaBlocosLPA2v} mostra 
+o diagrama de blocos da implementação da 
+LPA2v inserida na malha de controle. 
 
 \begin{figure}[!h]
 \centering
@@ -574,7 +585,9 @@ long controlador( long setpoint, long max, long sensor )
 \fill[white, nearly transparent] (SAT0) rectangle (SAT1);
 \node [fill=black, circle] (SATin)  at (11.0,6.0) { };
 \node [fill=black, circle] (SATout) at (12.0,6.0) { };
-\draw [thick] (11.2,5.7) -- (11.5,5.7) -- (11.5,6.3) -- (11.8,6.3);
+\draw [thick] (11.2,5.7) -- (11.4,5.7) -- (11.6,6.3) -- (11.8,6.3);
+\draw [gray, thick] (11.2,6.0) -- (11.8,6.0);
+\draw [gray, thick] (11.5,5.7) -- (11.5,6.3);
 
 % Multiplicacao
 \node [fill=black, circle] (MUL0) at (8,4.5) { };
@@ -680,9 +693,40 @@ long controlador( long setpoint, long max, long sensor )
 \label{fig:diagramaBlocosLPA2v}
 \end{figure}
 
+Temos então a descrição dos blocos :
+
+\begin{itemize}
+  \item $K_n$: Bloco de normalização da grandeza de velocidade de giro do motor em rotações por segundo para o intervalo fechado entre 0,0 e 1,0. 
+São dois bloco, sendo um para o parâmetro de referência, 
+ou \emph{setpoint}, e o outro para o sinal do sensor que efetua a 
+leitura diretamente na planta de processo;
+
+  \item $K_{\%}$: Normaliza o valor em um intervalo fechado de 0,0 a 1,0 para um intervalo de 0 a 100 correspondente ao parâmetro do acionamento por PWM;
+
+  \item $LPA2v$: Calcula os graus de Certeza e Contradição 
+de acordo com os parâmetros de entrada, 
+que são os graus de evidência favorável $\mu _0$ e $\mu _1$ e são
+respectivamente referentes ao valor desejado e 
+ao valor real lido diretamente na planta;
+
+  \item $K_{LP}$: Coeficiente de ganho proporcional do grau de contradição;
+
+  \item $x$: Bloco multiplicador;
+
+  \item $g(t)$: Planta do sistema;
+
+  \item $Soma$: Bloco somador;
+
+  \item \emph{Saturação}: Bloco limitador, impede o valor do PWM ultrapassar seu valor máximo de 100\%. 
+\end{itemize}
 
 
 
+Para implementação do controlador foram realizados alguns testes 
+para verificar a velocidade máxima que o motor alcança, 
+chegando ao valor de 85 RPS, com isso, 
+foi possível ajustar o bloco $K_n$ para $\frac{1}{85}$, 
+e sabe-se que o limite máximo para entrada em $r(t)$ é 85 e o mínimo é 0.
 
 
 
