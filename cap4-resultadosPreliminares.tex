@@ -724,17 +724,45 @@ ao valor real lido diretamente na planta;
 
 Para implementação do controlador foram realizados alguns testes 
 para verificar a velocidade máxima que o motor alcança, 
-chegando ao valor de 85 RPS, com isso, 
+chegando ao valor de 85 rotações por segundo (rps), com isso, 
 foi possível ajustar o bloco $K_n$ para $\frac{1}{85}$, 
 e sabe-se que o limite máximo para entrada em $r(t)$ é 85 e o mínimo é 0.
 
+O bloco $K_\%$ é apenas um fator multiplicador com valor 100.
+
+O bloco da $LPA2v$ apresenta a seguinte proposição:
+
+\emph{ P: O eixo do motor apresenta rotação igual ao valor de referência.}
+
+Para tal proposição, 
+são utilizados dois especialistas: 
+$\mu _0$ é o grau de crença que refere-se ao valor desejado, 
+e corresponde ao valor teórico para acionamento do PWM;
+e $\mu _1$, que é o grau de crença com que o motor 
+atinge a velocidade de giro desejada, 
+é o valor utilizado como realimentação do sistema.
+
+O bloco LPA2v calcula os graus de descrença das respectivas entradas:
+
+\begin{equation}
+\lambda _0 = 1- \mu _0   \hspace{1cm}   \lambda _1 = 1 - \mu_1 
+\end{equation}
+
+Para o cálculo dos graus de Certeza e Contradição são utilizados:
+
+\begin{equation}
+P _{(\mu_0, \lambda_1)}
+\end{equation}
 
 
-
-
-
-
-
+Os resultados da ação de controle utilizando a LPA2v são mostrados na 
+Figura \ref{fig:acaoLPA2v}, onde pode-se ver que 
+para um $K_{LP}$ variando de 4 até 10, 
+o sistema apresenta comportamento que atende aos requisitos de desempenho,
+pois o valor de regime entra na janela formada pelo erro de $5\%$ referente
+ao valor desejado em um tempo menor do que um $\tau$, ou seja, 2,5s.
+Mesmo o sobressinal gerado com $K_{LP} = 10$, 
+não chega a ultrapassar o valor limite máximo de erro. 
 
 
 \begin{figure}[!htb]
@@ -742,6 +770,21 @@ e sabe-se que o limite máximo para entrada em $r(t)$ é 85 e o mínimo é 0.
 \vspace{-1cm}\center\includegraphics[scale=1.6]{./imagens/klpAll.eps}
 \label{fig:acaoLPA2v}
 \end{figure}
+
+
+Em um segundo momento foi gerado um sinal de referência variável,
+assumindo valores de patamar diferentes a 
+cada intervalo de tempo aproximado de 10s.
+A Figura \ref{fig:acaoLPA2vpatam85} mostra 
+o sinal de referência junto ao sinal de resposta da planta,
+onde nota-se que com um degrau com variação de 25, 
+houve um sobressinal, porém para os demais patamares, 
+a variação foi menor, e com isso, 
+não apresentaram sobressinal. 
+Outro ponto notado foi que o erro é cada vez maior quanto maior for o 
+valor de desejado, de referência. 
+
+
 
 \begin{figure}[!htb]
 \caption{Ação de controle utilizando LPA2v para valores alvo variáveis}
@@ -752,6 +795,10 @@ e sabe-se que o limite máximo para entrada em $r(t)$ é 85 e o mínimo é 0.
 
 
 
+Apesar destes detalhes o resultado é tido como muito bom e promissor,
+pois possibilitou que a LPA2v fosse testada de forma empírica em um sistema
+de controle dinâmico, obtendo uma performance dentro de um padrão mínimo 
+estabelecido.
 
 
 
